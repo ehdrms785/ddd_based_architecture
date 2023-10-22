@@ -1,39 +1,36 @@
-<<<<<<< HEAD
-# ddd_based_architecture
-This project is based on DDD(Domain Driven Design) architecture.
-=======
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Introduce
 
-## Getting Started
+This project is based on DDD`(Domain Driven Design)` architecture.
 
-First, run the development server:
+## Project Setup
+
+First we will test to make sure the app is working. We're going to be using `yarn` for this example, but you could just as easily use NPM if you choose.
 
 ```bash
-npm run dev
-# or
+yarn install
+
 yarn dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Pros
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+- **Modularity**: Each module operates independently, making it easy to develop and maintain. If a problem occurs, you can focus on debugging in that domain.
+- **Reusability**: Common components and hooks are separated by module to increase reusability.
+- **Scalability**: When adding new features or services, simply create a new domain. This is especially useful in large-scale projects.
+- **Division of labor**: Each domain can be handled by different developers or teams, making it easier to divide work.
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+## Cons
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+- **Complexity**: The initial setup and learning curve can be somewhat complex, and in small to medium-sized projects, it may seem like over-engineering.
+- **Shared state management**: If there are many states that need to be shared between domains, state management can become complex.
+- **Boundary setting**: Applying DDD without proper boundary setting can lead to reverse functionality.
 
-## Learn More
+## Usage
 
-To learn more about Next.js, take a look at the following resources:
+When a new domain is created, a subdirectory is automatically created using a shell script. Use
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+yarn create:domain "Domain Name
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
->>>>>>> e108831 (Initial commit from Create Next App)
+command to create a subdirectory automatically. By default, the state management is configured to use Context API & Reducer, but it would be nice to change it to another state management library such as Redux or Mobx according your needs.
